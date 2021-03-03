@@ -20,9 +20,12 @@ module.exports = {
     // help serve assets to app
     publicPath: '/',
   },
-
+  node: {
+    fs: 'empty',
+    net: 'empty',
+  },
 // describe compilation environment
-  target: 'web',
+  target: 'node',
 // resolve missing extensions and allow import of node modules
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.css'],
@@ -35,6 +38,10 @@ module.exports = {
       template: path.join(__dirname, './src/index.html'),
     }),
     new MonacoWebpackPlugin(),
+  //   [
+  //     "@babel/plugin-syntax-dynamic-import",
+  //     "@babel/plugin-proposal-class-properties"
+  // ],
   ],
 // define type and loader methods
   module: {

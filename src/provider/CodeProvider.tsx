@@ -12,6 +12,8 @@ const CodeProviders = ({ children }: any) => {
     const [chosenFile, setChosenFile] = useState('');
     const [testFileName, setTestFileName] = useState('');
     const [toggleTree, setToggleTree] = useState(true);
+    //added state for Test.jsx
+    const [expectedResult] = useState('');
 //handler that changes it
     const inputHandler = (inputValue: string):void => {
         setInput(inputValue)
