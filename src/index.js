@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import CodeProvider from './provider/CodeProvider.tsx';
+import TestProvider from './provider/TestProvider.tsx';
 import App from './App';
 
 ReactDom.render(
@@ -11,7 +12,9 @@ ReactDom.render(
   // need to add providers here v
   <HashRouter>
     <CodeProvider>
-        <App />
+      <TestProvider>
+          <App />
+      </TestProvider>
     </CodeProvider>
   </HashRouter>,
   document.getElementById('root'),
