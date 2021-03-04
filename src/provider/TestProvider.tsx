@@ -8,17 +8,31 @@ export const TestState = React.createContext(state);
 //initial state
 const TestProviders = ({ children }: any) => {
     const [expectedResult , setResult] = useState('InitialString');
+    const [inputType, setInputType]  = useState('');
+    const [outputType, setOutputType] = useState('');
 //handler that changes it
     const testHandler = (TestValue: string):void => {
         setResult(TestValue)
         console.log(TestValue)
     };
-    
+    const inputDropdownHandler = (selection: string): void => {
+        setInputType(selection);
+    };
+
+    const outputDropdownHandler = (selection: string): void => {
+        setOutputType(selection);
+    };
+
+
 return (
     <TestState.Provider
         value={{
         expectedResult,
-        testHandler
+        testHandler, 
+        inputType, 
+        inputDropdownHandler,
+        outputType, 
+        outputDropdownHandler
         }} >
     {children}
     </TestState.Provider>
