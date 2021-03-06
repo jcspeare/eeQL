@@ -3,41 +3,42 @@ import { TestState } from '../../provider/TestProvider';
 // import {ReactDOM, render} from 'react-dom'
 
 const TestBuilder = () => {
-  const { testHandler, expectedResult, inputType, inputDropdownHandler, outputType, outputDropdownHandler}: any = useContext(TestState);
+  const { state, overallHandler, expectedResult, inputType, outputType, }: any = useContext(TestState);
 
 
   //takes id value of choices1 and invokes test handler, thus reassigning state expectedResult, which has string value
   const clicker = () => {
-    console.log('Get Element by Classname choices',  document.getElementsByClassName('choices') as HTMLSelectElement)
+    // console.log('Get Element by Classname choices',  document.getElementsByClassName('choices') as HTMLSelectElement)
     // verify all fields are successfully updated in console
-    console.log(`input field: ${expectedResult},input selection: ${inputType}, output selection: ${outputType}, `)
+    console.log(state);
   }
   
   const gatherInputDropdown = () => {
     // updates state hook for inputType by querying the id for the input dropdown
     const inputDropdown = document.getElementById('choices1') as HTMLSelectElement;
+    console.log('changedInputType', inputDropdown)
     const inputSelection = inputDropdown.options[inputDropdown.selectedIndex].text;
-    inputDropdownHandler(inputSelection);
+    overallHandler('inputType',inputSelection);
   }
 
   const gatherOutputDropdown = () => {
     // updates state hook for outputType by querying the id for the output dropdown
     const outputDropdown = document.getElementById('choices2') as HTMLSelectElement;
     const outputSelection = outputDropdown.options[outputDropdown.selectedIndex].text;
-    outputDropdownHandler(outputSelection);
+    overallHandler('outputType', outputSelection);
   }
 
 //created input handler that allows input tag to change as user types and registers results 
 const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) : void=>{
-     testHandler((e.target as HTMLInputElement).value);
+     overallHandler(e.target.id, (e.target as HTMLInputElement).value);
 }
 
   return (
     <div>
-      <h1>Current Expected Result: {expectedResult}</h1>
+      <h1>Current Expected Result: {state.expectedRes}</h1>
       <h3>Please enter your expected result:</h3>
  
-      <input type= "text" id= "expectedRes" value={`${expectedResult}`} onChange={inputHandler} ></input>
+      <input type= "text" id= "expectedRes" value={state.key} onChange={inputHandler} ></input>
       <br></br>
       
       {/* select value for input  */}

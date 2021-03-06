@@ -7,32 +7,46 @@ export const TestState = React.createContext(state);
 
 //initial state
 const TestProviders = ({ children }: any) => {
+
     const [expectedResult , setResult] = useState('InitialString');
     const [inputType, setInputType]  = useState('');
     const [outputType, setOutputType] = useState('');
-//handler that changes it
-    const testHandler = (TestValue: string):void => {
-        setResult(TestValue)
-        console.log(TestValue)
-    };
-    const inputDropdownHandler = (selection: string): void => {
-        setInputType(selection);
-    };
+    const [headertype, setHeader] = useState('');
+    const [state, setState] = useState({});
+    const [endpoint, setEndpoint] = useState('');
 
-    const outputDropdownHandler = (selection: string): void => {
-        setOutputType(selection);
-    };
+//     const [expectedResult , setResult] = useState('InitialString');
+//     const [inputType, setInputType]  = useState('');
+//     const [outputType, setOutputType] = useState('');
+// //handler that changes it
+//     const testHandler = (TestValue: string):void => {
+//         setResult(TestValue)
+//         console.log(TestValue)
+//     };
+//     const inputDropdownHandler = (selection: string): void => {
+//         setInputType(selection);
+//     };
+
+//     const outputDropdownHandler = (selection: string): void => {
+//         setOutputType(selection);
+//     };
+
+//handler for all states with  k-v's that are added/updated 
+const overallHandler = (altKey : string, altValue: any) =>{
+    setState({...state, 
+      [altKey]: altValue}) 
+  }
+
 
 
 return (
     <TestState.Provider
         value={{
-        expectedResult,
-        testHandler, 
-        inputType, 
-        inputDropdownHandler,
-        outputType, 
-        outputDropdownHandler
+            state,
+            overallHandler,
+            inputType, 
+            outputType,
+            expectedResult
         }} >
     {children}
     </TestState.Provider>
