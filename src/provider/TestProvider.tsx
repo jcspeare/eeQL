@@ -8,13 +8,14 @@ export const TestState = React.createContext(state);
 //initial state
 const TestProviders = ({ children }: any) => {
 
-    const [expectedResult , setResult] = useState('InitialString');
-    const [inputType, setInputType]  = useState('');
-    const [outputType, setOutputType] = useState('');
-    const [headertype, setHeader] = useState('');
+    // const [expectedResult , setResult] = useState('InitialString');
+    // const [inputType, setInputType]  = useState('');
+    // const [outputType, setOutputType] = useState('');
+    // const [headertype, setHeader] = useState('');
     const [state, setState] = useState({});
-    const [endpoint, setEndpoint] = useState('');
+    // const [endpoint, setEndpoint] = useState('');
 
+    
 //     const [expectedResult , setResult] = useState('InitialString');
 //     const [inputType, setInputType]  = useState('');
 //     const [outputType, setOutputType] = useState('');
@@ -44,9 +45,9 @@ return (
         value={{
             state,
             overallHandler,
-            inputType, 
-            outputType,
-            expectedResult
+            // inputType, 
+            // outputType,
+            // expectedResult
         }} >
     {children}
     </TestState.Provider>
