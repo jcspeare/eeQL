@@ -4,6 +4,7 @@ import { StateContext } from "../../../provider/StateProvider";
 import './TestBuilder.scss'
 import RestEndpoint from "../RestEndpoint/RestEndpoint"
 // import {ReactDOM, render} from 'react-dom'
+import RestTestCreation from "../TestGeneration/RestTestCreation"
 
 const { remote } = window.require('electron');
 const fs = remote.require('fs')
@@ -46,6 +47,10 @@ const TestBuilder = () => {
     console.log('monaco', activeFile)
   };
 
+  const handleSaveTest = () => {
+    console.log('Saving file: ', RestTestCreation(test));
+  }
+
   return (
     <div className='test-builder'>
       <RestEndpoint/>
@@ -67,7 +72,7 @@ const TestBuilder = () => {
       <button className= "resetTestButton" onClick = {resetHandler}>Reset</button>
 
       {/* save button  */}
-      <button className= "saveTestButton" onClick = {()=>console.log("Saving File...")} >Save</button>
+      <button className= "saveTestButton" onClick = {handleSaveTest} >Save</button>
       {/* fs.writeFileSync(
       `projectDirectory/__tests__/.insertFileNameHere.test.js`,
       stringRepresentationOfTest,

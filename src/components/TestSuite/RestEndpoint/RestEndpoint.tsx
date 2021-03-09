@@ -17,7 +17,7 @@ const RestEndpoint = () => {
         {methods[a]}
       </option>
     );
-  }
+  };
 
   //handler for state to reflect entires in a select tag
   const selectHandler = (e: any): void => {
@@ -25,12 +25,14 @@ const RestEndpoint = () => {
     const dropdown = document.getElementById(dropdownId) as HTMLSelectElement;
     const selection = dropdown.options[dropdown.selectedIndex].text;
     testHandler(dropdownId, selection);
-  }
+  };
 
   //handler for state to reflect entries in an input tag
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     testHandler(e.target.id, (e.target as HTMLInputElement).value);
   };
+
+
   
   return (
     <div className='rest-endpoint'>
