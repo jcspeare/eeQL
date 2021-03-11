@@ -88,8 +88,8 @@ const RestEndpoint = () => {
       <Input placeholder='Describe Your Test' fullWidth={true} id="expectedRes" type='text' onChange={inputHandler}/>  
       <Input placeholder='Route/Endpoint' defaultValue={test.desiredEndpoint || ''} fullWidth={true} id="desiredEndpoint" type='text' onChange={inputHandler}/>  
       <Input placeholder='Input Data' defaultValue={test.inputData || ''} fullWidth={true} id="inputData" type='text' onChange={inputHandler}/>  
-      <Input placeholder='Expected Data' defaultValue={test.outputData || ''} fullWidth={true} id="outputData" type='text' onChange={inputHandler}/>  
-      <Input placeholder='Header' defaultValue={test.headerInfo || ''} fullWidth={true} id="outputData" type='text' onChange={inputHandler}/>  
+      <Input placeholder='Assertion' defaultValue={test.outputData || ''} fullWidth={true} id="outputData" type='text' onChange={inputHandler}/>  
+      <Input placeholder='Header' defaultValue={test.headerInfo || ''} fullWidth={true} id="headerInfo" type='text' onChange={inputHandler}/>  
 
       <br></br>
     </div>

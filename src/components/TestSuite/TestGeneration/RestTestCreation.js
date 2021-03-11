@@ -12,14 +12,15 @@ const RestTestCreation = (state) => {
     .set({});
     expect(response.status).toBe(200);
   return done();
-  });`
+  });
+  `
   
   const serverApp = state.serverApp;
   const expectedRes = state.expectedRes;
   const methodSelect = state.methodSelect;
   const desiredEndpoint = state.desiredEndpoint;
-  const inputData = (state.methodSelect === 'POST' || state.methodSelect === 'PUT') ? `.send(${state.inputData});` : '';
-  const headerInfo = (state.headerInfo) ? `.set(${headerInfo})` : '';
+  const inputData = (state.methodSelect === 'POST' || state.methodSelect === 'PUT') ? `.send(${state.inputData})` : '';
+  const headerInfo = (state.headerInfo) ? `.set(${state.headerInfo})` : '';
   const outputData = state.outputData;
 
   const test =  
@@ -31,10 +32,10 @@ const RestTestCreation = (state) => {
   
   test('${expectedRes}', async (done) => {
     const response = await request
-    .${methodSelect}('${desiredEndpoint}')
+    .${methodSelect.toLowerCase()}('${desiredEndpoint}')
     ${inputData}
     ${headerInfo}
-  expect(${inputData}).toBe(${outputData});
+  expect(${outputData});
   return done();
   });
 `

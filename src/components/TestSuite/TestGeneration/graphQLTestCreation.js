@@ -39,8 +39,8 @@ const graphQLTestCreation = (state) => {
   const expectedRes = state.expectedRes;
   const methodSelect = state.methodSelect;
   const desiredEndpoint = state.desiredEndpoint;
-  const inputData = (state.methodSelect === 'POST' || state.methodSelect === 'PUT') ? `.send(${state.inputData});` : '';
-  const headerInfo = (state.headerInfo) ? `.set(${headerInfo})` : '';
+  const inputData = (state.methodSelect === 'POST' || state.methodSelect === 'PUT') ? `.send(${state.inputData})` : '';
+  const headerInfo = (state.headerInfo) ? `.set(${state.headerInfo})` : '';
   const outputData = state.outputData;
   const schemaApp = state.schemaApp;
   const URI = state.URI;
@@ -64,7 +64,7 @@ const graphQLTestCreation = (state) => {
       .end(function (err, res) {
         if (err) return done(err);
         expect(${inputData}).toBeInstanceOf(Object);
-        expect(${inputData}.data.users.length).toEqual(${outputData});
+        expect(${outputData}.data).toBeInstanceOf(Object);
         done();
       });
   });
