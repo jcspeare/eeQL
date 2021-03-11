@@ -4,7 +4,7 @@ import { StateContext } from '../../provider/StateProvider';
 import MonacoEditor from 'react-monaco-editor';
 import options from './options'
 const { remote } = window.require('electron');
-const electronFs = remote.require('fs');
+const fs = remote.require('fs');
 import { TestContext } from "../../provider/TestProvider";
 
 
@@ -15,7 +15,7 @@ const CodeEditor = () => {
     const [getContents, setContents] = useState('');
     const getFileContents = (path: String) => {
         if (path.length > 0){
-            setContents(electronFs.readFileSync(path, 'utf8'))
+            setContents(fs.readFileSync(path, 'utf8'))
         }
     }
     useEffect(()=> {
