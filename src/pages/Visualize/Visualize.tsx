@@ -24,7 +24,7 @@ const Visualize = () => {
             "focusAnimationDuration": 0.75,
             "focusZoom": 1,
             "freezeAllDragEvents": false,
-            "height": 400,
+            "height": 800,
             "highlightDegree": 1,
             "highlightOpacity": 1,
             "linkHighlightBehavior": false,

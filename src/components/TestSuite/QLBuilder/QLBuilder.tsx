@@ -23,6 +23,8 @@ const TestBuilder = () => {
 
     let inputFieldsArray = [
       "serverApp",
+      "schemaApp",
+      "URI",
       "expectedRes",
       "desiredEndpoint",
       "inputData",
