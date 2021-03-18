@@ -5,6 +5,7 @@ import './TestBuilder.scss'
 import RestEndpoint from "../RestEndpoint/RestEndpoint"
 import GraphQl from '../GraphQLEndpoint/GraphQLEndpoint'
 import RestTestCreation from "../TestGeneration/RestTestCreation"
+import graphQLTestCreation from "../TestGeneration/graphQLTestCreation"
 
 // import {ReactDOM, render} from 'react-dom'
 // @ts-ignore
@@ -52,7 +53,7 @@ const TestBuilder = () => {
   };
 
   const handleSaveTest = () => {
-    const restTest = RestTestCreation(test)
+    const restTest = (local) ? RestTestCreation(test) : graphQLTestCreation(test);
     console.log(restTest);
     fs.writeFileSync(
       `${userPath}/__tests__/insertFileNameHere.test.js`,

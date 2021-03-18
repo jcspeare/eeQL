@@ -22,9 +22,10 @@ const StateProvider = ({ children }: any) => {
     const pathHandler = (pathValue: string):void => { 
       setUserPath(pathValue) };
   // update the on/off of the file tree set below
-    const [toggleFileTree, setToggleFileTree] = useState(true);
-    const handleToggleFileTree = (): void => { 
-      setToggleFileTree(!toggleFileTree) };
+    // const [toggleFileTree, setToggleFileTree] = useState(true);
+    // const handleToggleFileTree = (): void => { 
+    //   setToggleFileTree(!toggleFileTree) };
+    
   // update and set the file tree for the directory    
     const [fileTree, setFileTree] = useState([]);
     const fileTreeHandler = (tree: any): void => { 
@@ -40,7 +41,7 @@ return (
         userPath, pathHandler,
         fileTree, fileTreeHandler,
         activeFile, activeFileHandler,
-        toggleFileTree, handleToggleFileTree,
+        // toggleFileTree, handleToggleFileTree,
         testFileName, setTestFileName 
         }}>
       { children }
